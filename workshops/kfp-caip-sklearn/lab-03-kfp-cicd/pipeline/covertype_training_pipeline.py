@@ -89,7 +89,7 @@ def generate_sampling_query(source_table_name, num_lots, lots):
 component_store = kfp.components.ComponentStore(
     local_search_paths=None, url_search_prefixes=[COMPONENT_URL_SEARCH_PREFIX])
 
-bigquery_query_op = component_store.load_component('bigquery/query')
+bigquery_query_op = component_store.load_component('bigquery/query/to_gcs/')
 mlengine_train_op = component_store.load_component('ml_engine/train')
 mlengine_deploy_op = component_store.load_component('ml_engine/deploy')
 retrieve_best_run_op = func_to_container_op(
